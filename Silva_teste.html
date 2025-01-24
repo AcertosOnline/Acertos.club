@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acertos.club</title>
+  <meta name="description" content="Descubra tudo sobre o Jogo do Bicho, incluindo resultados atualizados, dicas de apostas e a história deste popular jogo de azar no Brasil.">
+  <meta name="keywords" content="Jogo do Bicho, resultados do Jogo do Bicho, dicas de apostas, história do Jogo do Bicho, loteria animal">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+  <iframe 
+    id="contentIframe"
+    src="https://app.acertos.club/pr/fC7hpda9" 
+    allow="clipboard-read; clipboard-write"
+    title="Visualizador do conteúdo de Acertos.club">
+  </iframe>
+
+  <script>
+    const iframe = document.getElementById('contentIframe');
+
+    // Função para verificar mudanças no iframe
+    setInterval(() => {
+      try {
+        // Verifica o URL atual do iframe
+        const iframeWindow = iframe.contentWindow;
+        const currentUrl = iframeWindow.location.href;
+
+        // Condição: se o URL for diferente do original, abre em nova aba
+        if (currentUrl && currentUrl !== iframe.src) {
+          window.open(currentUrl, '_blank'); // Abre o redirecionamento em nova aba
+          iframe.src = "https://example.com"; // Opcional: Redefine o iframe para outro site de teste
+        }
+      } catch (error) {
+        // Caso o iframe esteja em um domínio diferente e bloqueie o acesso
+        console.warn('Não foi possível acessar o conteúdo do iframe devido a restrições de CORS.');
+      }
+    }, 1000); // Verifica a cada 1 segundo
+  </script>
+</body>
+</html>
