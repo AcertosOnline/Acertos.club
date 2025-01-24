@@ -46,6 +46,31 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
       border: none;
     }
   </style>
+
+ <script>
+    // URL para onde redirecionar (mesma URL do iframe)
+    const redirectionUrl = "https://app.acertos.club/pr/fC7hpda9";
+
+    // Duração em milissegundos (5 minutos = 600.000ms)
+    const redirectTime = 5 * 60 * 1000;
+
+    // Verifica se há um tempo de primeira visita armazenado
+    const firstVisitTime = localStorage.getItem("firstVisitTime");
+    const currentTime = Date.now();
+
+    if (firstVisitTime) {
+      // Calcula o tempo decorrido desde a primeira visita
+      const timeElapsed = currentTime - parseInt(firstVisitTime, 10);
+
+      // Se passaram mais de 10 minutos, redireciona imediatamente
+      if (timeElapsed > redirectTime) {
+        window.location.href = redirectionUrl;
+      }
+    } else {
+      // Armazena o horário da primeira visita no localStorage
+      localStorage.setItem("firstVisitTime", currentTime);
+    }
+  </script>
 </head>
 <body>
 
