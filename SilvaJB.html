@@ -55,12 +55,38 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
-  <h1>Acertos.club</h1>
+  <h1>Acertos Club</h1>
   <iframe 
+    id="contentIframe"
     src="https://app.acertos.club/pr/fC7hpda9" 
     allow="clipboard-read; clipboard-write"
-    sandbox="allow-scripts allow-same-origin allow-top-navigation" title="app.acertos.club">
+    title="Acertos Club">
   </iframe>
+
+  <script>
+    const iframe = document.getElementById('contentIframe');
+
+    // Detecta mudanças no iframe
+    iframe.addEventListener('load', () => {
+      try {
+        const iframeWindow = iframe.contentWindow;
+        const iframeDocument = iframe.contentDocument || iframeWindow.document;
+
+        // Monitora cliques nos links dentro do iframe
+        iframeDocument.addEventListener('click', (event) => {
+          const target = event.target;
+
+          if (target.tagName === 'A' && target.href.includes('api.whatsapp.com')) {
+            event.preventDefault(); // Evita que o link seja aberto no iframe
+            window.open(target.href, '_blank'); // Abre o link em uma nova aba
+          }
+        });
+      } catch (error) {
+        // Caso o iframe esteja em um domínio diferente e bloqueie o acesso
+        console.warn('Não foi possível acessar o conteúdo do iframe devido a restrições de CORS.');
+      }
+    });
+  </script>
 
     <script>
         // Limpa a barra de navegação, deixando apenas o domínio
