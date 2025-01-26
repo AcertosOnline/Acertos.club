@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acertos Club</title>
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <style>
+    h1 { display: none; }
+    html, body {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+    }
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+    #menu-button {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      width: 50px;
+      height: 50px;
+      background-color: #333;
+      color: #fff;
+      font-size: 24px;
+      border: none;
+      border-radius: 50%;
+      cursor: grab;
+      z-index: 1000;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #menu {
+      display: none;
+      position: fixed;
+      top: 80px;
+      left: 20px;
+      background: rgba(0, 0, 0, 0.9);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      z-index: 999;
+    }
+    .banca-btn, .back-btn {
+      display: block;
+      margin: 10px 0;
+      padding: 10px;
+      background-color: #fff;
+      color: #000;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+      border-radius: 5px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Acertos.club</h1>
+  <iframe src="https://app.acertos.club/pr/CRTgB0ZV" allow="clipboard-read; clipboard-write"></iframe>
+
+  <button id="menu-button">&#9776;</button>
+  <div id="menu">
+    <button class="banca-btn" onclick="loadBancas()">Palpites></button>
+    <div id="banca-list" style="display:none;"></div>
+    <div id="palpites-list" style="display:none;"></div>
+  </div>
+
+  <script>
+    let menuButton = document.getElementById('menu-button');
+    let menu = document.getElementById('menu');
+    let bancaList = document.getElementById('banca-list');
+    let palpitesList = document.getElementById('palpites-list');
+    let isDragging = false;
+
+    menuButton.addEventListener('click', () => {
+      menu.style.display = menu.style.display === 'block' ? 'none' : 'block';
+    });
+
+    menuButton.addEventListener('mousedown', function(event) {
+      isDragging = true;
+      document.addEventListener('mousemove', moveButton);
+    });
+
+    document.addEventListener('mouseup', function() {
+      isDragging = false;
+      document.removeEventListener('mousemove', moveButton);
+    });
+
+    function moveButton(event) {
+      if (isDragging) {
+        menuButton.style.left = event.clientX - 25 + 'px';
+        menuButton.style.top = event.clientY - 25 + 'px';
+      }
+    }
+
+    async function loadBancas() {
+      bancaList.innerHTML = '';
+      palpitesList.style.display = 'none';
+      bancaList.style.display = 'block';
+
+      const response = await fetch('https://app.acertosonline.com/palpites.js');
+      const script = await response.text();
+      eval(script);
+
+      for (const banca in palpites) {
+        let bancaButton = document.createElement('button');
+        bancaButton.className = 'banca-btn';
+        bancaButton.innerText = banca;
+        bancaButton.onclick = () => showPalpites(banca);
+        bancaList.appendChild(bancaButton);
+      }
+    }
+
+    function showPalpites(banca) {
+      bancaList.style.display = 'none';
+      palpitesList.style.display = 'block';
+      palpitesList.innerHTML = `<button class='back-btn' onclick='loadBancas()'>Voltar</button>`;
+      palpites[banca].palpites.forEach(num => {
+        let palpiteItem = document.createElement('div');
+        palpiteItem.className = 'banca-btn';
+        palpiteItem.innerText = num;
+        palpitesList.appendChild(palpiteItem);
+      });
+    }
+  </script>
+</body>
+</html>
