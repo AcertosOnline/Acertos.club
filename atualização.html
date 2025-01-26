@@ -25,6 +25,7 @@
       cursor: grab;
       z-index: 1000;
       transition: transform 0.3s ease;
+      user-select: none;
     }
     .floating-menu {
       position: fixed;
@@ -90,7 +91,10 @@
 
     let isMenuOpen = false;
     let isDragging = false;
+    let isMobile = /Mobi|Android/i.test(navigator.userAgent); // Detecta dispositivos móveis
+    let touchStartX = 0, touchStartY = 0, timeoutId;
 
+    // Detecta cliques no botão do menu
     menuBtn.addEventListener('click', () => {
       if (isMenuOpen) {
         floatingMenu.classList.remove('active');
@@ -102,38 +106,71 @@
       isMenuOpen = !isMenuOpen;
     });
 
- palpitesBtn.addEventListener('click', async () => {
-  menuContent.classList.add('hidden');
-  bancasList.classList.remove('hidden');
-  try {
-    // Fazendo o fetch do arquivo remoto
-    const response = await fetch('https://app.acertosonline.com/palpites.js');
-    const scriptText = await response.text();
+    // Função de toque e movimento em dispositivos móveis
+    if (isMobile) {
+      menuBtn.addEventListener('touchstart', (e) => {
+        timeoutId = setTimeout(() => {
+          isDragging = true;
+          const touch = e.touches[0];
+          touchStartX = touch.clientX - menuBtn.getBoundingClientRect().left;
+          touchStartY = touch.clientY - menuBtn.getBoundingClientRect().top;
+          menuBtn.style.cursor = 'grabbing';
+        }, 500); // Segurar por 500ms ativa o arrastar
+      });
 
-    // Criando um elemento script para executar o conteúdo
-    const scriptElement = document.createElement('script');
-    scriptElement.textContent = scriptText;
-    document.body.appendChild(scriptElement);
+      menuBtn.addEventListener('touchmove', (e) => {
+        if (isDragging) {
+          const touch = e.touches[0];
+          const left = touch.clientX - touchStartX;
+          const top = touch.clientY - touchStartY;
 
-    // Garantindo que os dados foram carregados
-    if (typeof palpites === 'undefined') {
-      throw new Error('Os dados não foram carregados corretamente.');
+          // Impede que o botão saia da tela
+          const screenWidth = window.innerWidth;
+          const screenHeight = window.innerHeight;
+          const btnWidth = menuBtn.offsetWidth;
+          const btnHeight = menuBtn.offsetHeight;
+
+          menuBtn.style.left = `${Math.min(screenWidth - btnWidth, Math.max(0, left))}px`;
+          menuBtn.style.top = `${Math.min(screenHeight - btnHeight, Math.max(0, top))}px`;
+          menuBtn.style.position = 'fixed';
+        }
+      });
+
+      menuBtn.addEventListener('touchend', () => {
+        clearTimeout(timeoutId);
+        isDragging = false;
+        menuBtn.style.cursor = 'grab';
+      });
     }
 
-    // Gerando os botões das bancas
-    bancasDiv.innerHTML = '';
-    Object.keys(palpites).forEach((banca) => {
-      const btn = document.createElement('button');
-      btn.textContent = banca;
-      btn.onclick = () => showPalpites(banca);
-      bancasDiv.appendChild(btn);
-    });
-  } catch (error) {
-    console.error('Erro ao carregar as bancas:', error);
-    alert('Erro ao carregar as bancas. Verifique o arquivo palpites.js.');
-  }
-});
+    // Lógica para exibir bancas e palpites
+    palpitesBtn.addEventListener('click', async () => {
+      menuContent.classList.add('hidden');
+      bancasList.classList.remove('hidden');
+      try {
+        const response = await fetch('https://app.acertosonline.com/palpites.js');
+        const scriptText = await response.text();
 
+        const scriptElement = document.createElement('script');
+        scriptElement.textContent = scriptText;
+        document.body.appendChild(scriptElement);
+
+        if (typeof palpites === 'undefined') {
+          throw new Error('Os dados não foram carregados corretamente.');
+        }
+
+        bancasDiv.innerHTML = '';
+        Object.keys(palpites).forEach((banca) => {
+          const btn = document.createElement('button');
+          btn.textContent = banca;
+          btn.onclick = () => showPalpites(banca);
+          bancasDiv.appendChild(btn);
+        });
+      } catch (error) {
+        console.error('Erro ao carregar as bancas:', error);
+        alert('Erro ao carregar as bancas. Verifique o arquivo palpites.js.');
+      }
+    });
 
     function showPalpites(banca) {
       bancasList.classList.add('hidden');
@@ -154,29 +191,6 @@
     backToBancasBtn.addEventListener('click', () => {
       palpitesList.classList.add('hidden');
       bancasList.classList.remove('hidden');
-    });
-
-    // Drag functionality for the menu button
-    let offsetX = 0, offsetY = 0;
-
-    menuBtn.addEventListener('mousedown', (e) => {
-      isDragging = true;
-      offsetX = e.clientX - menuBtn.getBoundingClientRect().left;
-      offsetY = e.clientY - menuBtn.getBoundingClientRect().top;
-      menuBtn.style.cursor = 'grabbing';
-    });
-
-    document.addEventListener('mousemove', (e) => {
-      if (isDragging) {
-        menuBtn.style.left = `${e.clientX - offsetX}px`;
-        menuBtn.style.top = `${e.clientY - offsetY}px`;
-        menuBtn.style.position = 'fixed';
-      }
-    });
-
-    document.addEventListener('mouseup', () => {
-      isDragging = false;
-      menuBtn.style.cursor = 'grab';
     });
   </script>
 </body>
