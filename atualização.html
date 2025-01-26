@@ -48,11 +48,24 @@
       transform: scale(1);
     }
     .menu-content { text-align: center; }
-    .menu-content button, .menu-content a {
+    .menu-content button {
       padding: 15px 30px;
       margin: 10px;
       font-size: 18px;
       cursor: pointer;
+    }
+    .menu-content a {
+      position: fixed;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      color: white;
+      font-size: 18px;
+      text-decoration: none;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    }
+    .menu-content a:hover {
+      text-decoration: underline;
     }
     .hidden { display: none; }
 
@@ -105,7 +118,6 @@
     const backToBancasBtn = document.getElementById('backToBancasBtn');
 
     let isMenuOpen = false;
-    let isDragging = false;
 
     // Detecta cliques no botão do menu
     menuBtn.addEventListener('click', () => {
@@ -157,12 +169,13 @@
         return;
       }
 
-      // Renderiza os palpites em 5 colunas
-      palpitesDiv.innerHTML = `<h2>Palpites:</h2>
+      // Renderiza os palpites e frases
+      palpitesDiv.innerHTML = `
+        <h2>Palpites para ${banca}:</h2>
         <div class="palpites-grid">
           ${palpitesArray.map(palpite => `<span>${palpite}</span>`).join('')}
         </div>
-        <h3>Frases:</h3>
+        <h3>Acertos dos palpites anteriores:</h3>
         <p>${frases.join('<br>')}</p>`;
     }
 
@@ -175,6 +188,7 @@
       palpitesList.classList.add('hidden');
       bancasList.classList.remove('hidden');
     });
+
 
     // Funcionalidade de arrastar o ícone do menu
     let offsetX = 0, offsetY = 0;
