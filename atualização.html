@@ -55,6 +55,21 @@
       cursor: pointer;
     }
     .hidden { display: none; }
+
+    /* Estilo para exibir palpites em 5 colunas */
+    .palpites-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr); /* 5 colunas */
+      gap: 10px;
+      margin-top: 20px;
+    }
+    .palpites-grid span {
+      background-color: #444;
+      color: #fff;
+      padding: 10px;
+      text-align: center;
+      border-radius: 5px;
+    }
   </style>
 </head>
 <body>
@@ -90,9 +105,6 @@
     const backToBancasBtn = document.getElementById('backToBancasBtn');
 
     let isMenuOpen = false;
-    let isDragging = false;
-    let isMobile = /Mobi|Android/i.test(navigator.userAgent); // Detecta dispositivos móveis
-    let touchStartX = 0, touchStartY = 0, timeoutId;
 
     // Detecta cliques no botão do menu
     menuBtn.addEventListener('click', () => {
@@ -105,43 +117,6 @@
       }
       isMenuOpen = !isMenuOpen;
     });
-
-    // Função de toque e movimento em dispositivos móveis
-    if (isMobile) {
-      menuBtn.addEventListener('touchstart', (e) => {
-        timeoutId = setTimeout(() => {
-          isDragging = true;
-          const touch = e.touches[0];
-          touchStartX = touch.clientX - menuBtn.getBoundingClientRect().left;
-          touchStartY = touch.clientY - menuBtn.getBoundingClientRect().top;
-          menuBtn.style.cursor = 'grabbing';
-        }, 500); // Segurar por 500ms ativa o arrastar
-      });
-
-      menuBtn.addEventListener('touchmove', (e) => {
-        if (isDragging) {
-          const touch = e.touches[0];
-          const left = touch.clientX - touchStartX;
-          const top = touch.clientY - touchStartY;
-
-          // Impede que o botão saia da tela
-          const screenWidth = window.innerWidth;
-          const screenHeight = window.innerHeight;
-          const btnWidth = menuBtn.offsetWidth;
-          const btnHeight = menuBtn.offsetHeight;
-
-          menuBtn.style.left = `${Math.min(screenWidth - btnWidth, Math.max(0, left))}px`;
-          menuBtn.style.top = `${Math.min(screenHeight - btnHeight, Math.max(0, top))}px`;
-          menuBtn.style.position = 'fixed';
-        }
-      });
-
-      menuBtn.addEventListener('touchend', () => {
-        clearTimeout(timeoutId);
-        isDragging = false;
-        menuBtn.style.cursor = 'grab';
-      });
-    }
 
     // Lógica para exibir bancas e palpites
     palpitesBtn.addEventListener('click', async () => {
@@ -180,7 +155,14 @@
         palpitesDiv.innerHTML = '<p>Erro ao carregar os palpites ou frases.</p>';
         return;
       }
-      palpitesDiv.innerHTML = `<h2>Palpites:</h2>${palpitesArray.join('<br>')}<h3>Frases:</h3>${frases.join('<br>')}`;
+
+      // Renderiza os palpites em 5 colunas
+      palpitesDiv.innerHTML = `<h2>Palpites:</h2>
+        <div class="palpites-grid">
+          ${palpitesArray.map(palpite => `<span>${palpite}</span>`).join('')}
+        </div>
+        <h3>Frases:</h3>
+        <p>${frases.join('<br>')}</p>`;
     }
 
     backBtn.addEventListener('click', () => {
