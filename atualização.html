@@ -42,23 +42,18 @@
       z-index: 999;
       transform: scale(0);
       transition: transform 0.3s ease;
-      overflow: hidden;
+      overflow-y: auto;
+      -ms-overflow-style: none; /* Desabilita scroll no IE */
+      scrollbar-width: none; /* Desabilita scroll no Firefox */
+    }
+    .floating-menu::-webkit-scrollbar {
+      display: none; /* Desabilita scroll no Chrome */
     }
     .floating-menu.active {
       display: flex;
       transform: scale(1);
     }
-    .menu-content {
-      text-align: center;
-      max-height: 80%; /* Define o tamanho máximo do menu */
-      overflow-y: auto; /* Permite rolagem vertical */
-      -webkit-overflow-scrolling: touch; /* Suaviza a rolagem em dispositivos móveis */
-      scrollbar-width: none; /* Oculta a barra de rolagem no Firefox */
-    }
-    .menu-content::-webkit-scrollbar {
-      display: none; /* Oculta a barra de rolagem no Chrome e Safari */
-    }
-
+    .menu-content { text-align: center; }
     .menu-content button {
       padding: 15px 30px;
       margin: 10px;
@@ -134,10 +129,14 @@
     menuBtn.addEventListener('click', () => {
       if (isMenuOpen) {
         floatingMenu.classList.remove('active');
-        setTimeout(() => floatingMenu.style.display = 'none', 300);
+        setTimeout(() => {
+          floatingMenu.style.display = 'none';
+          document.body.style.overflow = 'auto'; // Reativa o scroll da página
+        }, 300);
       } else {
         floatingMenu.style.display = 'flex';
         setTimeout(() => floatingMenu.classList.add('active'), 0);
+        document.body.style.overflow = 'hidden'; // Desativa o scroll da página
       }
       isMenuOpen = !isMenuOpen;
     });
