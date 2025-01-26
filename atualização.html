@@ -42,12 +42,23 @@
       z-index: 999;
       transform: scale(0);
       transition: transform 0.3s ease;
+      overflow: hidden;
     }
     .floating-menu.active {
       display: flex;
       transform: scale(1);
     }
-    .menu-content { text-align: center; }
+    .menu-content {
+      text-align: center;
+      max-height: 80%; /* Define o tamanho máximo do menu */
+      overflow-y: auto; /* Permite rolagem vertical */
+      -webkit-overflow-scrolling: touch; /* Suaviza a rolagem em dispositivos móveis */
+      scrollbar-width: none; /* Oculta a barra de rolagem no Firefox */
+    }
+    .menu-content::-webkit-scrollbar {
+      display: none; /* Oculta a barra de rolagem no Chrome e Safari */
+    }
+
     .menu-content button {
       padding: 15px 30px;
       margin: 10px;
