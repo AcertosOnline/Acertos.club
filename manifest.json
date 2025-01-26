@@ -2,7 +2,7 @@
   "name": "Acertos Club",
   "short_name": "Acertos",
   "description": "Aplicação para visualizar bancas e palpites do Acertos Club.",
-  "start_url": "/index.html",
+  "start_url": "/teste.html",
   "scope": "/",
   "display": "standalone",
   "background_color": "#000000",
