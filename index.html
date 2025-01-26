@@ -26,6 +26,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="description" content="O melhor site  de apostas online do Brasil, com as melhores cotações do mercado e seus dados 100% seguros! Recargas e saques via PIX, com total segurança e automatico. Jogo do Bicho, resultados do Jogo do Bicho, dicas de apostas, história do Jogo do Bicho, loteria animal, resultado do Jogo do Bicho, Federal, Look de goiás, look, pt-rio, Pt-Rio, pt rio, PT Rio, PT RIO, PT Sp, Pt-SP, Pt - Sp, pt sp, Deu no poste, Lotep, LOTEP, lotep, Lotece, LOTECE, lotece, Nacional, nacional, Maluquinha, Maluca bahia, Maluca Bahia, maluca bahia, maluquinha, MALUQUINHA, resultado de Hoje, Federal hoje, resultado federal, Resultado federal, Resultado Federal, Loterias, LOTERIA, MALUCA Bahia, PARATODOS Bahia, Paratodos, paratodos bahia, maluca bahia, LOTECE loteria dos sonhos, LBR, LOOK LOTERIAS, Look loterias, MINAS-MG, PARATODOS PB, PT-RIO, Pt-Rio, PT-SP, Bandeirantes, LOTERIA NACIONAL, Lot Nacional, Loteria Federal, LOTERIA FEDERAL, último resultado, Cassino Online, Tigrinho, Fazendinha, Bindo, Jogo do Bicho, como ganhar dinheiro online, como ganhar dinheiro, Apostas online, jogo do cassino, jogo de minas, banca feiticeira, banca acertos.club, app.acertos.club, jogo do tigre, palpites, palpite federal, palpite para a federal, como ganhar no jogo do Bicho, banca de apostas online, resultados do jogo do bicho, dezenas do jogo do bicho, palpites do jogo do bicho, tabela do jogo do bicho, significado dos sonhos no jogo do bicho, história do jogo do bicho, animais do jogo do bicho, jogo do bicho online, como jogar o jogo do bicho, resultado do jogo do bicho de hoje, cassino online, melhores cassinos online, cassino ao vivo, cassino com bônus sem depósito, jogos de cassino online, roleta online, blackjack online, caça-níqueis online, cassino móvel, aplicativos de apostas, melhores aplicativos de apostas, apostas esportivas, apostas ao vivo, bônus de apostas, sites de apostas confiáveis">
   <meta name="keywords" content="Jogo do Bicho, resultados do Jogo do Bicho, dicas de apostas, história do Jogo do Bicho, loteria animal, resultado do Jogo do Bicho, Federal, Look de goiás, look, pt-rio, Pt-Rio, pt rio, PT Rio, PT RIO, PT Sp, Pt-SP, Pt - Sp, pt sp, Deu no poste, Lotep, LOTEP, lotep, Lotece, LOTECE, lotece, Nacional, nacional, Maluquinha, Maluca bahia, Maluca Bahia, maluca bahia, maluquinha, MALUQUINHA, resultado de Hoje, Federal hoje, resultado federal, Resultado federal, Resultado Federal, Loterias, LOTERIA, MALUCA Bahia, PARATODOS Bahia, Paratodos, paratodos bahia, maluca bahia, LOTECE loteria dos sonhos, LBR, LOOK LOTERIAS, Look loterias, MINAS-MG, PARATODOS PB, PT-RIO, Pt-Rio, PT-SP, Bandeirantes, LOTERIA NACIONAL, Lot Nacional, Loteria Federal, LOTERIA FEDERAL, último resultado, Cassino Online, Tigrinho, Fazendinha, Bindo, Jogo do Bicho, como ganhar dinheiro online, como ganhar dinheiro, Apostas online, jogo do cassino, jogo de minas, banca feiticeira, banca acertos.club, app.acertos.club, jogo do tigre, palpites, palpite federal, palpite para a federal, como ganhar no jogo do Bicho, banca de apostas online, resultados do jogo do bicho, dezenas do jogo do bicho, palpites do jogo do bicho, tabela do jogo do bicho, significado dos sonhos no jogo do bicho, história do jogo do bicho, animais do jogo do bicho, jogo do bicho online, como jogar o jogo do bicho, resultado do jogo do bicho de hoje, cassino online, melhores cassinos online, cassino ao vivo, cassino com bônus sem depósito, jogos de cassino online, roleta online, blackjack online, caça-níqueis online, cassino móvel, aplicativos de apostas, melhores aplicativos de apostas, apostas esportivas, apostas ao vivo, bônus de apostas, sites de apostas confiáveis">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <link rel="manifest" href="manifest.json">
   <style>
     h1 { display: none; }
     html, body { margin: 0; padding: 0; width: 100%; height: 100%; overflow: hidden; }
@@ -149,125 +150,163 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </div>
   </div>
 
-  <script>
-    const menuBtn = document.getElementById('menuBtn');
-    const floatingMenu = document.getElementById('floatingMenu');
-    const menuContent = document.getElementById('menuContent');
-    const bancasList = document.getElementById('bancasList');
-    const palpitesList = document.getElementById('palpitesList');
-    const bancasDiv = document.getElementById('bancas');
-    const palpitesDiv = document.getElementById('palpites');
-    const palpitesBtn = document.getElementById('palpitesBtn');
-    const backBtn = document.getElementById('backBtn');
-    const backToBancasBtn = document.getElementById('backToBancasBtn');
-
-    let isMenuOpen = false;
-
-    // Detecta cliques no botão do menu
-    menuBtn.addEventListener('click', () => {
-      if (isMenuOpen) {
-        floatingMenu.classList.remove('active');
-        setTimeout(() => {
-          floatingMenu.style.display = 'none';
-        }, 300);
-      } else {
-        floatingMenu.style.display = 'flex';
-        setTimeout(() => floatingMenu.classList.add('active'), 0);
-      }
-      isMenuOpen = !isMenuOpen;
+<script>
+  // Instalação do Service Worker
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/service-worker.js').then(registration => {
+      console.log('Service Worker registrado com sucesso:', registration);
+    }).catch(error => {
+      console.error('Falha ao registrar o Service Worker:', error);
     });
+  }
 
-    // Lógica para exibir bancas e palpites
-    palpitesBtn.addEventListener('click', async () => {
-      menuContent.classList.add('hidden');
-      bancasList.classList.remove('hidden');
-      try {
-        const response = await fetch('https://app.acertosonline.com/palpites.js');
-        const scriptText = await response.text();
+  const menuBtn = document.getElementById('menuBtn');
+  const floatingMenu = document.getElementById('floatingMenu');
+  const menuContent = document.getElementById('menuContent');
+  const bancasList = document.getElementById('bancasList');
+  const palpitesList = document.getElementById('palpitesList');
+  const bancasDiv = document.getElementById('bancas');
+  const palpitesDiv = document.getElementById('palpites');
+  const palpitesBtn = document.getElementById('palpitesBtn');
+  const backBtn = document.getElementById('backBtn');
+  const backToBancasBtn = document.getElementById('backToBancasBtn');
 
-        const scriptElement = document.createElement('script');
-        scriptElement.textContent = scriptText;
-        document.body.appendChild(scriptElement);
+  let isMenuOpen = false;
 
-        if (typeof palpites === 'undefined') {
-          throw new Error('Os dados não foram carregados corretamente.');
-        }
+  // Detecta cliques no botão do menu
+  menuBtn.addEventListener('click', () => {
+    if (isMenuOpen) {
+      floatingMenu.classList.remove('active');
+      setTimeout(() => {
+        floatingMenu.style.display = 'none';
+      }, 300);
+    } else {
+      floatingMenu.style.display = 'flex';
+      setTimeout(() => floatingMenu.classList.add('active'), 0);
+    }
+    isMenuOpen = !isMenuOpen;
+  });
 
-        bancasDiv.innerHTML = '';
-        Object.keys(palpites).forEach((banca) => {
-          const btn = document.createElement('button');
-          btn.textContent = banca;
-          btn.onclick = () => showPalpites(banca);
-          bancasDiv.appendChild(btn);
-        });
-      } catch (error) {
-        console.error('Erro ao carregar as bancas:', error);
-        alert('Erro ao carregar as bancas. Verifique o arquivo palpites.js.');
+  // Lógica para exibir bancas e palpites
+  palpitesBtn.addEventListener('click', async () => {
+    menuContent.classList.add('hidden');
+    bancasList.classList.remove('hidden');
+    try {
+      const response = await fetch('https://app.acertosonline.com/palpites.js');
+      const scriptText = await response.text();
+
+      const scriptElement = document.createElement('script');
+      scriptElement.textContent = scriptText;
+      document.body.appendChild(scriptElement);
+
+      if (typeof palpites === 'undefined') {
+        throw new Error('Os dados não foram carregados corretamente.');
       }
-    });
 
-    function showPalpites(banca) {
-      bancasList.classList.add('hidden');
-      palpitesList.classList.remove('hidden');
-      const { palpites: palpitesArray, frases } = palpites[banca] || {};
-      if (!palpitesArray || !frases) {
-        palpitesDiv.innerHTML = '<p>Erro ao carregar os palpites ou frases.</p>';
-        return;
-      }
+      bancasDiv.innerHTML = '';
+      Object.keys(palpites).forEach((banca) => {
+        const btn = document.createElement('button');
+        btn.textContent = banca;
+        btn.onclick = () => showPalpites(banca);
+        bancasDiv.appendChild(btn);
+      });
+    } catch (error) {
+      console.error('Erro ao carregar as bancas:', error);
+      alert('Erro ao carregar as bancas. Verifique o arquivo palpites.js.');
+    }
+  });
 
-      // Renderiza os palpites e frases
-      palpitesDiv.innerHTML = `
-        <h2>Palpites para ${banca}:</h2>
-        <div class="palpites-grid">
-          ${palpitesArray.map(palpite => `<span>${palpite}</span>`).join('')}
-        </div>
-        <h3>Acertos dos palpites anteriores:</h3>
-        <p>${frases.join('<br><br>')}</p>`;
+  function showPalpites(banca) {
+    bancasList.classList.add('hidden');
+    palpitesList.classList.remove('hidden');
+    const { palpites: palpitesArray, frases } = palpites[banca] || {};
+    if (!palpitesArray || !frases) {
+      palpitesDiv.innerHTML = '<p>Erro ao carregar os palpites ou frases.</p>';
+      return;
     }
 
-    backBtn.addEventListener('click', () => {
-      bancasList.classList.add('hidden');
-      menuContent.classList.remove('hidden');
-    });
+    // Renderiza os palpites e frases
+    palpitesDiv.innerHTML = `
+      <h2>Palpites para ${banca}:</h2>
+      <div class="palpites-grid">
+        ${palpitesArray.map(palpite => `<span>${palpite}</span>`).join('')}
+      </div>
+      <h3>Acertos dos palpites anteriores:</h3>
+      <p>${frases.join('<br><br>')}</p>`;
+  }
 
-    backToBancasBtn.addEventListener('click', () => {
-      palpitesList.classList.add('hidden');
-      bancasList.classList.remove('hidden');
-    });
+  backBtn.addEventListener('click', () => {
+    bancasList.classList.add('hidden');
+    menuContent.classList.remove('hidden');
+  });
 
-    // Funcionalidade de arrastar o ícone do menu
-    let offsetX = 0, offsetY = 0;
+  backToBancasBtn.addEventListener('click', () => {
+    palpitesList.classList.add('hidden');
+    bancasList.classList.remove('hidden');
+  });
 
-    menuBtn.addEventListener('touchstart', (e) => {
-      if (e.touches.length === 1) {
-        const touch = e.touches[0];
-        offsetX = touch.clientX - menuBtn.getBoundingClientRect().left;
-        offsetY = touch.clientY - menuBtn.getBoundingClientRect().top;
-        isDragging = true;
+  // Funcionalidade de arrastar o ícone do menu
+  let offsetX = 0, offsetY = 0;
+
+  menuBtn.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) {
+      const touch = e.touches[0];
+      offsetX = touch.clientX - menuBtn.getBoundingClientRect().left;
+      offsetY = touch.clientY - menuBtn.getBoundingClientRect().top;
+      isDragging = true;
+    }
+  });
+
+  document.addEventListener('touchmove', (e) => {
+    if (isDragging && e.touches.length === 1) {
+      const touch = e.touches[0];
+      let newX = touch.clientX - offsetX;
+      let newY = touch.clientY - offsetY;
+
+      // Limita o movimento para dentro da tela
+      const maxX = window.innerWidth - menuBtn.offsetWidth;
+      const maxY = window.innerHeight - menuBtn.offsetHeight;
+      newX = Math.max(0, Math.min(newX, maxX));
+      newY = Math.max(0, Math.min(newY, maxY));
+
+      menuBtn.style.left = `${newX}px`;
+      menuBtn.style.top = `${newY}px`;
+      menuBtn.style.position = 'fixed';
+    }
+  });
+
+  document.addEventListener('touchend', () => {
+    isDragging = false;
+  });
+
+  // Adiciona funcionalidade de instalação do PWA
+  let deferredPrompt;
+  const installAppItem = document.createElement('button');
+  installAppItem.textContent = 'Instalar App';
+  installAppItem.style.display = 'none'; // Inicialmente oculto
+  installAppItem.style.padding = '10px';
+  installAppItem.style.margin = '10px';
+  installAppItem.style.fontSize = '16px';
+  menuContent.appendChild(installAppItem);
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault(); // Impede o prompt padrão
+    deferredPrompt = e;
+    installAppItem.style.display = 'block'; // Exibe o botão no menu
+  });
+
+  installAppItem.addEventListener('click', async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt(); // Exibe o prompt de instalação
+      const choice = await deferredPrompt.userChoice;
+      if (choice.outcome === 'accepted') {
+        console.log('Usuário aceitou a instalação.');
+      } else {
+        console.log('Usuário cancelou a instalação.');
       }
-    });
-
-    document.addEventListener('touchmove', (e) => {
-      if (isDragging && e.touches.length === 1) {
-        const touch = e.touches[0];
-        let newX = touch.clientX - offsetX;
-        let newY = touch.clientY - offsetY;
-
-        // Limita o movimento para dentro da tela
-        const maxX = window.innerWidth - menuBtn.offsetWidth;
-        const maxY = window.innerHeight - menuBtn.offsetHeight;
-        newX = Math.max(0, Math.min(newX, maxX));
-        newY = Math.max(0, Math.min(newY, maxY));
-
-        menuBtn.style.left = `${newX}px`;
-        menuBtn.style.top = `${newY}px`;
-        menuBtn.style.position = 'fixed';
-      }
-    });
-
-    document.addEventListener('touchend', () => {
-      isDragging = false;
-    });
-  </script>
+      deferredPrompt = null; // Limpa o evento
+    }
+  });
+</script>
 </body>
 </html>
