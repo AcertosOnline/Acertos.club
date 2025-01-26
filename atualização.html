@@ -100,7 +100,7 @@
     <div class="menu-content" id="menuContent">
       <p>Contato: contato@acertos.club</p>
       <button id="palpitesBtn">Palpites</button>
-    </div>
+    </div><br>
     <div class="menu-content hidden" id="bancasList">
       <div id="bancas"></div>
       <a href="#" id="backBtn">Voltar</a>
@@ -186,7 +186,7 @@
           ${palpitesArray.map(palpite => `<span>${palpite}</span>`).join('')}
         </div>
         <h3>Acertos dos palpites anteriores:</h3>
-        <p>${frases.join('<br>')}</p>`;
+        <p>${frases.join('<br><br>')}</p>`;
     }
 
     backBtn.addEventListener('click', () => {
