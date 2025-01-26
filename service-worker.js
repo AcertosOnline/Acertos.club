@@ -1,7 +1,7 @@
 const CACHE_NAME = "acertos-club-cache-v1";
 const urlsToCache = [
   "/",
-  "/index.html",
+  "/teste.html",
   "/favicon.ico",
   "/icon-192.png",
   "/icon-512.png",
