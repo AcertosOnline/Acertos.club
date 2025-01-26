@@ -105,6 +105,7 @@
     const backToBancasBtn = document.getElementById('backToBancasBtn');
 
     let isMenuOpen = false;
+    let isDragging = false;
 
     // Detecta cliques no botão do menu
     menuBtn.addEventListener('click', () => {
@@ -173,6 +174,40 @@
     backToBancasBtn.addEventListener('click', () => {
       palpitesList.classList.add('hidden');
       bancasList.classList.remove('hidden');
+    });
+
+    // Funcionalidade de arrastar o ícone do menu
+    let offsetX = 0, offsetY = 0;
+
+    menuBtn.addEventListener('touchstart', (e) => {
+      if (e.touches.length === 1) {
+        const touch = e.touches[0];
+        offsetX = touch.clientX - menuBtn.getBoundingClientRect().left;
+        offsetY = touch.clientY - menuBtn.getBoundingClientRect().top;
+        isDragging = true;
+      }
+    });
+
+    document.addEventListener('touchmove', (e) => {
+      if (isDragging && e.touches.length === 1) {
+        const touch = e.touches[0];
+        let newX = touch.clientX - offsetX;
+        let newY = touch.clientY - offsetY;
+
+        // Limita o movimento para dentro da tela
+        const maxX = window.innerWidth - menuBtn.offsetWidth;
+        const maxY = window.innerHeight - menuBtn.offsetHeight;
+        newX = Math.max(0, Math.min(newX, maxX));
+        newY = Math.max(0, Math.min(newY, maxY));
+
+        menuBtn.style.left = `${newX}px`;
+        menuBtn.style.top = `${newY}px`;
+        menuBtn.style.position = 'fixed';
+      }
+    });
+
+    document.addEventListener('touchend', () => {
+      isDragging = false;
     });
   </script>
 </body>
