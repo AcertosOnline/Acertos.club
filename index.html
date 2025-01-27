@@ -372,21 +372,21 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   });
 
   // Adiciona funcionalidade de instalação do PWA
-  let deferredPrompt;
-  const installAppItem = document.createElement('button');
-  installAppItem.textContent = 'Instalar App';
-  installAppItem.style.display = 'none'; // Inicialmente oculto
-  installAppItem.style.width: 100%; /* Botão ocupa a largura completa */
-  installAppItem.style.padding = '15px';
-  installAppItem.style.margin = '10px';
-  installAppItem.style.fontSize = '18px';
-  installAppItem.style.text-align: center;
-  installAppItem.style.cursor: pointer;
-  installAppItem.style.background-color: #555;
-  installAppItem.style.color: white;
-  installAppItem.style.border: none;
-  installAppItem.style.border-radius: 5px;
-  menuContent.appendChild(installAppItem);
+let deferredPrompt;
+const installAppItem = document.createElement('button');
+installAppItem.textContent = 'Instalar App';
+installAppItem.style.display = 'none'; // Inicialmente oculto
+installAppItem.style.width = '100%'; // Botão ocupa a largura completa
+installAppItem.style.padding = '15px';
+installAppItem.style.margin = '10px';
+installAppItem.style.fontSize = '18px';
+installAppItem.style.textAlign = 'center'; // text-align corrigido para camelCase
+installAppItem.style.cursor = 'pointer';
+installAppItem.style.backgroundColor = '#555'; // background-color corrigido para camelCase
+installAppItem.style.color = 'white';
+installAppItem.style.border = 'none';
+installAppItem.style.borderRadius = '5px';
+menuContent.appendChild(installAppItem);
 
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault(); // Impede o prompt padrão
