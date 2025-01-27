@@ -1,26 +1,8 @@
-const CACHE_NAME = 'loto-hack-cache-v1';
+const CACHE_NAME = 'acertos.club.cache';
 const urlsToCache = [
-    '/',
-    'https://app.acertos.club/pr/fC7hpda9',
     '/index.html',
-    '/styles.css',
-    '/script.js',
     '/manifest.json',
-    '/icons/icon-192x192.png',
-    '/icons/icon-512x512.png',
-    '/icons/compartilhar.png',
-    '/icons/resultado.png',
-    '/icons/jogar.png',
-    '/icons/palpite.png',
-    '/icons/LotoHack.png',
-    '/icons/favicon.png',
-    '/icons/favicon.ico',
-    '/icons/favicon.svg',
-    '/MPayment/Modal.js'
-    '/MPayment/Script.js'
-    '/MPayment/Styles.css'
-    '/MPayment/BuyOK.png'  
-    // Adicione aqui outros recursos que você deseja cachear
+    '/icon_216x233px.png'
 ];
 
 // Instala o Service Worker e adiciona os recursos ao cache
