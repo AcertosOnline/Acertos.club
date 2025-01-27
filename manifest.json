@@ -1,21 +1,16 @@
 {
-    "name": "Loto Hacker",
-    "short_name": "Loto Hacker",
-    "start_url": "/",
+    "name": "Acertos Club",
+    "short_name": "Acertos Club",
+    "start_url": "index.html",
     "display": "standalone",
     "background_color": "#2b2a2a",
     "theme_color": "#4CAF50",
     "icons": [
         {
-            "src": "icons/icon-192x192.png",
-            "sizes": "192x192",
+            "src": "/icon_216x233px.png",
+            "sizes": "216x233",
             "type": "image/png"
         },
-        {
-            "src": "icons/icon-512x512.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        }
     ],
     "description": "Ajuda apostadores do Jogo do Bicho a acertarem suas apostas com base em análises estatísticas e probabilidades."
 }
