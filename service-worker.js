@@ -1,9 +1,10 @@
 const CACHE_NAME = 'acertos.club.cache';
 const urlsToCache = [
+    '/',
     '/index.html',
     '/manifest.json',
-    '/icon192.png',
-    '/icon512.png'
+    '/IMG/icon192.png',
+    '/IMG/icon512.png'
 ];
 
 // Instala o Service Worker e adiciona os recursos ao cache
