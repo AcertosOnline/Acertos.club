@@ -375,17 +375,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 let deferredPrompt;
 const installAppItem = document.createElement('button');
 installAppItem.textContent = 'Instalar App';
-installAppItem.style.display = 'none'; // Inicialmente oculto
-installAppItem.style.width = '100%'; // Botão ocupa a largura completa
-installAppItem.style.padding = '15px';
-installAppItem.style.margin = '10px';
-installAppItem.style.fontSize = '18px';
-installAppItem.style.textAlign = 'center'; // text-align corrigido para camelCase
-installAppItem.style.cursor = 'pointer';
-installAppItem.style.backgroundColor = '#555'; // background-color corrigido para camelCase
-installAppItem.style.color = 'white';
-installAppItem.style.border = 'none';
-installAppItem.style.borderRadius = '5px';
+installAppItem.className = 'menu-content'; // Atribui a classe para herdar os estilos do CSS
+installAppItem.style.display = 'none'; // Adiciona a regra inline apenas para ocultar inicialmente
 menuContent.appendChild(installAppItem);
 
   window.addEventListener('beforeinstallprompt', (e) => {
