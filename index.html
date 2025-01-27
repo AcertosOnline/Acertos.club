@@ -375,9 +375,9 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 let deferredPrompt;
 const installAppItem = document.createElement('button');
 installAppItem.textContent = 'Instalar App';
-installAppItem.className = 'menu-content'; // Atribui a classe para herdar os estilos do CSS
-installAppItem.style.display = 'none'; // Adiciona a regra inline apenas para ocultar inicialmente
-menuContent.appendChild(installAppItem);
+installAppItem.style.display = 'none'; // Inicialmente oculto
+menuContent = document.querySelector('.menu-content'); // Seleciona o contêiner
+menuContent.appendChild(installAppItem); // Adiciona o botão como filho
 
   window.addEventListener('beforeinstallprompt', (e) => {
     e.preventDefault(); // Impede o prompt padrão
