@@ -42,6 +42,13 @@ html, body {
   overflow: hidden;
 }
 
+body p {
+  padding: 0 20px; /* Espaçamento lateral de 20px */
+  line-height: 1.6; /* Melhor legibilidade */
+  font-size: 16px; /* Tamanho de fonte agradável */
+  color: black; /* Cor do texto */
+}
+
 iframe { 
   width: 100%; 
   height: 100%; 
@@ -180,7 +187,6 @@ iframe {
 
   align-items: center; /* Centraliza o ícone e o texto */
   gap: 10px; /* Espaço entre o ícone e o texto */
-
   color: black;
   font-size: 18px;
   text-decoration: none;
@@ -188,32 +194,16 @@ iframe {
   box-sizing: border-box; /* Padding e largura do contêiner não entram em conflito */
 }
 
-
 .contact-links a img.icon {
-  width: 20px; /* Tamanho do ícone */
-  height: 20px;
+  height: 1em; /* Define a altura do ícone igual ao tamanho da fonte */
+  width: auto; /* Mantém a proporção do ícone */
+  vertical-align: middle; /* Garante alinhamento vertical consistente */
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 .contact-links a:hover {
   text-decoration: underline; /* Efeito visual ao passar o mouse */
 }
 
-/* Estilo para o botão em formato vertical */
 .menu-content button {
   display: block;
   width: 100%; /* Botão ocupa a largura completa */
@@ -224,14 +214,34 @@ iframe {
   font-size: 18px;
   text-align: center;
   cursor: pointer;
-  background-color: #555;
-  color: white;
-  border: none;
-  border-radius: 5px;
+
+  /* Glassmorphism com gradiente */
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,  /* Transparente no início */
+    rgba(0, 0, 0, 0.6) 20%, /* Gradualmente escurece */
+    rgba(0, 0, 0, 0.6) 80%, /* Gradualmente clareia */
+    rgba(0, 0, 0, 0) 100% /* Transparente no final */
+  );
+  color: white; /* Texto branco para contraste */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Borda clara e sutil */
+  backdrop-filter: blur(10px); /* Efeito de desfoque no fundo */
+  -webkit-backdrop-filter: blur(10px); /* Compatibilidade com Safari */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra suave */
+  transition: all 0.3s ease; /* Transição suave para efeitos */
 }
 
 .menu-content button:hover {
-  background-color: #777; /* Efeito hover */
+  /* Efeito ao passar o mouse */
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,  /* Transparente no início */
+    rgba(0, 0, 125, 0.8) 20%, /* Gradualmente mais escuro */
+    rgba(0, 0, 125, 0.8) 80%, /* Gradualmente mais escuro */
+    rgba(0, 0, 0, 0) 100% /* Transparente no final */
+  );
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Realce na borda */
+  transform: scale(1.03); /* Leve aumento no tamanho */
 }
 
 /* Classe oculta */
@@ -245,6 +255,7 @@ iframe {
   grid-template-columns: repeat(5, 1fr); /* 5 colunas */
   gap: 10px;
   margin-top: 20px;
+  padding: 0 20px; /* Espaçamento nas laterais esquerda e direita */
 }
 
 .palpites-grid span {
@@ -258,9 +269,6 @@ iframe {
 .botao-fixo {
   position: fixed;
   bottom: 20px;   /* Distância do fundo da página */
-  left: 50%;      /* Centraliza horizontalmente */
-  transform: translateX(-50%); /* Ajusta a centralização */
-  padding: 10px 20px;
   cursor: pointer;
 }
 </style>
@@ -284,10 +292,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <div class="floating-menu" id="floatingMenu">
 
 <div class="menu-content" id="menuContent">
-  <p>Promotor Dantas JB<br>Contato:</p>
+  <p>Promotor Dantas JB 🦁</p>
   <div class="contact-links">
     <a href="https://wa.me/5583993708505" target="_blank">
-      <img src="icons/whatsapp-icon.png" alt="WhatsApp" class="icon"> (83)9 99370-8505
+      <img src="icons/whatsapp-icon.png" alt="WhatsApp" class="icon"> (83) 9 99370-8505
     </a>
     <a href="https://www.facebook.com/QuabraBanca/" target="_blank">
       <img src="icons/facebook-icon.png" alt="Facebook" class="icon"> QuabraBanca
