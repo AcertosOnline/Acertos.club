@@ -26,55 +26,254 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="description" content="O melhor site  de apostas online do Brasil, com as melhores cotações do mercado e seus dados 100% seguros! Recargas e saques via PIX, com total segurança e automatico. Jogo do Bicho, resultados do Jogo do Bicho, dicas de apostas, história do Jogo do Bicho, loteria animal, resultado do Jogo do Bicho, Federal, Look de goiás, look, pt-rio, Pt-Rio, pt rio, PT Rio, PT RIO, PT Sp, Pt-SP, Pt - Sp, pt sp, Deu no poste, Lotep, LOTEP, lotep, Lotece, LOTECE, lotece, Nacional, nacional, Maluquinha, Maluca bahia, Maluca Bahia, maluca bahia, maluquinha, MALUQUINHA, resultado de Hoje, Federal hoje, resultado federal, Resultado federal, Resultado Federal, Loterias, LOTERIA, MALUCA Bahia, PARATODOS Bahia, Paratodos, paratodos bahia, maluca bahia, LOTECE loteria dos sonhos, LBR, LOOK LOTERIAS, Look loterias, MINAS-MG, PARATODOS PB, PT-RIO, Pt-Rio, PT-SP, Bandeirantes, LOTERIA NACIONAL, Lot Nacional, Loteria Federal, LOTERIA FEDERAL, último resultado, Cassino Online, Tigrinho, Fazendinha, Bindo, Jogo do Bicho, como ganhar dinheiro online, como ganhar dinheiro, Apostas online, jogo do cassino, jogo de minas, banca feiticeira, banca acertos.club, app.acertos.club, jogo do tigre, palpites, palpite federal, palpite para a federal, como ganhar no jogo do Bicho, banca de apostas online, resultados do jogo do bicho, dezenas do jogo do bicho, palpites do jogo do bicho, tabela do jogo do bicho, significado dos sonhos no jogo do bicho, história do jogo do bicho, animais do jogo do bicho, jogo do bicho online, como jogar o jogo do bicho, resultado do jogo do bicho de hoje, cassino online, melhores cassinos online, cassino ao vivo, cassino com bônus sem depósito, jogos de cassino online, roleta online, blackjack online, caça-níqueis online, cassino móvel, aplicativos de apostas, melhores aplicativos de apostas, apostas esportivas, apostas ao vivo, bônus de apostas, sites de apostas confiáveis">
   <meta name="keywords" content="Jogo do Bicho, resultados do Jogo do Bicho, dicas de apostas, história do Jogo do Bicho, loteria animal, resultado do Jogo do Bicho, Federal, Look de goiás, look, pt-rio, Pt-Rio, pt rio, PT Rio, PT RIO, PT Sp, Pt-SP, Pt - Sp, pt sp, Deu no poste, Lotep, LOTEP, lotep, Lotece, LOTECE, lotece, Nacional, nacional, Maluquinha, Maluca bahia, Maluca Bahia, maluca bahia, maluquinha, MALUQUINHA, resultado de Hoje, Federal hoje, resultado federal, Resultado federal, Resultado Federal, Loterias, LOTERIA, MALUCA Bahia, PARATODOS Bahia, Paratodos, paratodos bahia, maluca bahia, LOTECE loteria dos sonhos, LBR, LOOK LOTERIAS, Look loterias, MINAS-MG, PARATODOS PB, PT-RIO, Pt-Rio, PT-SP, Bandeirantes, LOTERIA NACIONAL, Lot Nacional, Loteria Federal, LOTERIA FEDERAL, último resultado, Cassino Online, Tigrinho, Fazendinha, Bindo, Jogo do Bicho, como ganhar dinheiro online, como ganhar dinheiro, Apostas online, jogo do cassino, jogo de minas, banca feiticeira, banca acertos.club, app.acertos.club, jogo do tigre, palpites, palpite federal, palpite para a federal, como ganhar no jogo do Bicho, banca de apostas online, resultados do jogo do bicho, dezenas do jogo do bicho, palpites do jogo do bicho, tabela do jogo do bicho, significado dos sonhos no jogo do bicho, história do jogo do bicho, animais do jogo do bicho, jogo do bicho online, como jogar o jogo do bicho, resultado do jogo do bicho de hoje, cassino online, melhores cassinos online, cassino ao vivo, cassino com bônus sem depósito, jogos de cassino online, roleta online, blackjack online, caça-níqueis online, cassino móvel, aplicativos de apostas, melhores aplicativos de apostas, apostas esportivas, apostas ao vivo, bônus de apostas, sites de apostas confiáveis">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
-  
+  <link rel="manifest" href="silva-manifest.json">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
-    h1 {
-      display: none;
-    }
+h1 { 
+  display: none; 
+}
 
-    /* Garantir que não haja margens e que o iframe ocupe 100% */
-    html, body {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-    }
+html, body {
+  font-family: 'Poppins', sans-serif; /* Fonte moderna */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
 
-    iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-  </style>
-  
- <script>
-    // URL para onde redirecionar (mesma URL do iframe)
-    const redirectionUrl = "https://app.acertos.club/pr/T5Sf26JH";
+body p {
+  padding: 0 20px; /* Espaçamento lateral de 20px */
+  line-height: 1.6; /* Melhor legibilidade */
+  font-size: 16px; /* Tamanho de fonte agradável */
+  color: black; /* Cor do texto */
+}
 
-    // Duração em milissegundos (5 minutos = 600.000ms)
-    const redirectTime = 5 * 60 * 1000;
+iframe { 
+  width: 100%; 
+  height: 100%; 
+  border: none; 
+}
 
-    // Verifica se há um tempo de primeira visita armazenado
-    const firstVisitTime = localStorage.getItem("firstVisitTime");
-    const currentTime = Date.now();
+.menu-btn {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600; /* Negrito leve para um visual sofisticado */
+  font-size: 24px; /* Ajuste de tamanho */
+  text-align: center;
+  line-height: 60px;
+  border-radius: 50%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  cursor: grab;
+  z-index: 1000;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  user-select: none;
+}
 
-    if (firstVisitTime) {
-      // Calcula o tempo decorrido desde a primeira visita
-      const timeElapsed = currentTime - parseInt(firstVisitTime, 10);
+.menu-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
 
-      // Se passaram mais de 10 minutos, redireciona imediatamente
-      if (timeElapsed > redirectTime) {
-        window.location.href = redirectionUrl;
-      }
-    } else {
-      // Armazena o horário da primeira visita no localStorage
-      localStorage.setItem("firstVisitTime", currentTime);
-    }
-  </script>
+.menu-btn:active {
+  transform: scale(0.95);
+  cursor: grabbing;
+}
+
+.floating-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  color: black;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  z-index: 999;
+  transform: scale(0);
+  transition: transform 0.4s ease, opacity 0.4s ease;
+  overflow: hidden;
+  opacity: 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Quando o menu estiver ativo */
+.floating-menu.active {
+  display: flex;
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Títulos ou links dentro do menu */
+.floating-menu a {
+  margin: 10px 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400; /* Regular para links */
+  font-size: 16px; /* Ajuste para legibilidade */
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px 20px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.floating-menu a:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+/* Botão para fechar o menu */
+.floating-menu .close-btn {
+  font-family: 'Poppins', sans-serif;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  border-radius: 50%;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.floating-menu .close-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.2);
+}
+
+.floating-menu.active {
+  display: flex;
+  transform: scale(1);
+}
+
+.menu-content {
+  text-align: center;
+  overflow-y: auto;
+  -ms-overflow-style: none; /* Desabilita scroll no IE */
+  scrollbar-width: none; /* Desabilita scroll no Firefox */
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+}
+
+.menu-content::-webkit-scrollbar {
+  display: none; /* Desabilita scroll no Chrome */
+}
+
+/* Estilo para os links de contato e redes sociais */
+.contact-links {
+  text-align: center;
+  width: 100%; /* Ocupa toda a largura disponível */
+  margin-bottom: 60px; /* Espaço entre os links e o botão */
+}
+
+.contact-links a {
+  display: block; /* Garante que cada link ocupe uma linha inteira */
+
+  align-items: center; /* Centraliza o ícone e o texto */
+  gap: 10px; /* Espaço entre o ícone e o texto */
+  color: black;
+  font-size: 18px;
+  text-decoration: none;
+  padding: 10px 20px; /* Espaçamento interno para conforto visual */
+  box-sizing: border-box; /* Padding e largura do contêiner não entram em conflito */
+}
+
+.contact-links a img.icon {
+  height: 1em; /* Define a altura do ícone igual ao tamanho da fonte */
+  width: auto; /* Mantém a proporção do ícone */
+  vertical-align: middle; /* Garante alinhamento vertical consistente */
+}
+
+.contact-links a:hover {
+  text-decoration: underline; /* Efeito visual ao passar o mouse */
+}
+
+.menu-content button {
+  display: block;
+  width: 100%; /* Botão ocupa a largura completa */
+  padding: 15px;
+  margin: 10px 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500; /* Peso intermediário */
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+
+  /* Glassmorphism com gradiente */
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,  /* Transparente no início */
+    rgba(0, 0, 0, 0.6) 20%, /* Gradualmente escurece */
+    rgba(0, 0, 0, 0.6) 80%, /* Gradualmente clareia */
+    rgba(0, 0, 0, 0) 100% /* Transparente no final */
+  );
+  color: white; /* Texto branco para contraste */
+  border: 1px solid rgba(255, 255, 255, 0.2); /* Borda clara e sutil */
+  backdrop-filter: blur(10px); /* Efeito de desfoque no fundo */
+  -webkit-backdrop-filter: blur(10px); /* Compatibilidade com Safari */
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3); /* Sombra suave */
+  transition: all 0.3s ease; /* Transição suave para efeitos */
+}
+
+.menu-content button:hover {
+  /* Efeito ao passar o mouse */
+  background: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0) 0%,  /* Transparente no início */
+    rgba(0, 0, 125, 0.8) 20%, /* Gradualmente mais escuro */
+    rgba(0, 0, 125, 0.8) 80%, /* Gradualmente mais escuro */
+    rgba(0, 0, 0, 0) 100% /* Transparente no final */
+  );
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Realce na borda */
+  transform: scale(1.03); /* Leve aumento no tamanho */
+}
+
+/* Classe oculta */
+.hidden { 
+  display: none; 
+}
+
+/* Estilo para exibir palpites em 5 colunas */
+.palpites-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr); /* 5 colunas */
+  gap: 10px;
+  margin-top: 20px;
+  padding: 0 20px; /* Espaçamento nas laterais esquerda e direita */
+}
+
+.palpites-grid span {
+  background-color: #444;
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.botao-fixo {
+  position: fixed;
+  bottom: 20px;   /* Distância do fundo da página */
+  cursor: pointer;
+}
+</style>
 </head>
 <body>
-
 
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLW7HM8X"
@@ -82,15 +281,213 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <!-- End Google Tag Manager (noscript) -->
 
   <h1>Acertos.club</h1>
-  <iframe 
+<iframe 
     src="https://app.acertos.club/pr/T5Sf26JH" 
-    allow="clipboard-read; clipboard-write"
-    title="app.acertos.club">
-  </iframe>
+    allow="clipboard-read; clipboard-write; fullscreen; geolocation" 
+    title="app.acertos.club" 
+    style="border: 0; width: 100%; height: 100vh;"
+></iframe>
 
-    <script>
-        // Limpa a barra de navegação, deixando apenas o domínio
-        history.replaceState(null, '', '/');
-    </script>
+  <div class="menu-btn" id="menuBtn">☰</div>
+  <div class="floating-menu" id="floatingMenu">
+
+<div class="menu-content" id="menuContent">
+  <p>Promotor Dantas JB 🦁</p>
+  <div class="contact-links">
+    <a href="https://wa.me/5583993708505" target="_blank">
+      <img src="icons/whatsapp-icon.png" alt="WhatsApp" class="icon"> (83) 9 99370-8505
+    </a>
+    <a href="https://www.facebook.com/QuabraBanca/" target="_blank">
+      <img src="icons/facebook-icon.png" alt="Facebook" class="icon"> QuabraBanca
+    </a>
+    <a href="https://www.instagram.com/acertosonline/" target="_blank">
+      <img src="icons/instagram-icon.png" alt="Instagram" class="icon"> acertosonline
+    </a>
+    <a href="https://www.youtube.com/@AcertosOnline" target="_blank">
+      <img src="icons/youtube-icon.png" alt="YouTube" class="icon"> @AcertosOnline
+    </a>
+    <a href="https://br.pinterest.com/acertosonline/" target="_blank">
+      <img src="icons/pinterest-icon.png" alt="Pinterest" class="icon"> acertosonline
+    </a>
+    <a href="https://x.com/AcertosOnlineJB" target="_blank">
+      <img src="icons/x-icon.png" alt="X" class="icon"> AcertosOnlineJB
+    </a>
+
+  </div>
+  <button id="palpitesBtn">Palpites</button>
+</div>
+
+    <div class="menu-content hidden" id="bancasList">
+      <div id="bancas"></div><br><br><br><br>
+      <button class="botao-fixo" href="#" id="backBtn">Voltar</a>
+    </div>
+
+    <div class="menu-content hidden" id="palpitesList">
+      <div id="palpites"></div><br><br><br><br>
+      <button class="botao-fixo" href="#" id="backToBancasBtn">Voltar</a>
+    </div>
+  </div>
+
+<script>
+  // Instalação do Service Worker
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/silva-service-worker.js').then(registration => {
+      console.log('Service Worker registrado com sucesso:', registration);
+    }).catch(error => {
+      console.error('Falha ao registrar o Service Worker:', error);
+    });
+  }
+
+  const menuBtn = document.getElementById('menuBtn');
+  const floatingMenu = document.getElementById('floatingMenu');
+
+  const menuContent = document.getElementById('menuContent');
+  const bancasList = document.getElementById('bancasList');
+  const palpitesList = document.getElementById('palpitesList');
+  const bancasDiv = document.getElementById('bancas');
+  const palpitesDiv = document.getElementById('palpites');
+  const palpitesBtn = document.getElementById('palpitesBtn');
+  const backBtn = document.getElementById('backBtn');
+  const backToBancasBtn = document.getElementById('backToBancasBtn');
+
+  let isMenuOpen = false;
+
+  // Detecta cliques no botão do menu
+  menuBtn.addEventListener('click', () => {
+    if (isMenuOpen) {
+      floatingMenu.classList.remove('active');
+      setTimeout(() => {
+        floatingMenu.style.display = 'none';
+      }, 300);
+    } else {
+      floatingMenu.style.display = 'flex';
+      setTimeout(() => floatingMenu.classList.add('active'), 0);
+    }
+    isMenuOpen = !isMenuOpen;
+  });
+
+  // Lógica para exibir bancas e palpites
+  palpitesBtn.addEventListener('click', async () => {
+    menuContent.classList.add('hidden');
+    bancasList.classList.remove('hidden');
+    try {
+      const response = await fetch('https://app.acertosonline.com/palpites.js');
+      const scriptText = await response.text();
+
+      const scriptElement = document.createElement('script');
+      scriptElement.textContent = scriptText;
+      document.body.appendChild(scriptElement);
+
+      if (typeof palpites === 'undefined') {
+        throw new Error('Os dados não foram carregados corretamente.');
+      }
+
+      bancasDiv.innerHTML = '';
+      Object.keys(palpites).forEach((banca) => {
+        const btn = document.createElement('button');
+        btn.textContent = banca;
+        btn.onclick = () => showPalpites(banca);
+        bancasDiv.appendChild(btn);
+      });
+    } catch (error) {
+      console.error('Erro ao carregar as bancas:', error);
+      alert('Erro ao carregar as bancas. Verifique o arquivo palpites.js.');
+    }
+  });
+
+  function showPalpites(banca) {
+    bancasList.classList.add('hidden');
+    palpitesList.classList.remove('hidden');
+    const { palpites: palpitesArray, frases } = palpites[banca] || {};
+    if (!palpitesArray || !frases) {
+      palpitesDiv.innerHTML = '<p>Erro ao carregar os palpites ou frases.</p>';
+      return;
+    }
+
+    // Renderiza os palpites e frases
+    palpitesDiv.innerHTML = `
+      <h2>Palpites para ${banca}:</h2>
+      <div class="palpites-grid">
+        ${palpitesArray.map(palpite => `<span>${palpite}</span>`).join('')}
+      </div>
+      <h3>Acertos dos palpites anteriores:</h3>
+      <p>${frases.join('<br><br>')}</p>`;
+  }
+
+  backBtn.addEventListener('click', () => {
+    bancasList.classList.add('hidden');
+    menuContent.classList.remove('hidden');
+  });
+
+  backToBancasBtn.addEventListener('click', () => {
+    palpitesList.classList.add('hidden');
+    bancasList.classList.remove('hidden');
+  });
+
+  // Funcionalidade de arrastar o ícone do menu
+  let offsetX = 0, offsetY = 0;
+
+  menuBtn.addEventListener('touchstart', (e) => {
+    if (e.touches.length === 1) {
+      const touch = e.touches[0];
+      offsetX = touch.clientX - menuBtn.getBoundingClientRect().left;
+      offsetY = touch.clientY - menuBtn.getBoundingClientRect().top;
+      isDragging = true;
+    }
+  });
+
+  document.addEventListener('touchmove', (e) => {
+    if (isDragging && e.touches.length === 1) {
+      const touch = e.touches[0];
+      let newX = touch.clientX - offsetX;
+      let newY = touch.clientY - offsetY;
+
+      // Limita o movimento para dentro da tela
+      const maxX = window.innerWidth - menuBtn.offsetWidth;
+      const maxY = window.innerHeight - menuBtn.offsetHeight;
+      newX = Math.max(0, Math.min(newX, maxX));
+      newY = Math.max(0, Math.min(newY, maxY));
+
+      menuBtn.style.left = `${newX}px`;
+      menuBtn.style.top = `${newY}px`;
+      menuBtn.style.position = 'fixed';
+    }
+  });
+
+  document.addEventListener('touchend', () => {
+    isDragging = false;
+  });
+
+  // Adiciona funcionalidade de instalação do PWA
+let deferredPrompt;
+const installAppItem = document.createElement('button');
+installAppItem.textContent = 'Instalar App';
+installAppItem.className = 'menu-content'; // Atribui a classe para herdar os estilos do CSS
+installAppItem.style.display = 'none'; // Adiciona a regra inline apenas para ocultar inicialmente
+installAppItem.style.height = '50px'; // Limita a altura em 50px
+menuContent.appendChild(installAppItem);
+
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault(); // Impede o prompt padrão
+    deferredPrompt = e;
+    installAppItem.style.display = 'block'; // Exibe o botão no menu
+  });
+
+  installAppItem.addEventListener('click', async () => {
+    if (deferredPrompt) {
+      deferredPrompt.prompt(); // Exibe o prompt de instalação
+      const choice = await deferredPrompt.userChoice;
+      if (choice.outcome === 'accepted') {
+        console.log('Usuário aceitou a instalação.');
+      } else {
+        console.log('Usuário cancelou a instalação.');
+      }
+      deferredPrompt = null; // Limpa o evento
+    }
+  });
+
+// Limpa a barra de navegação, deixando apenas o domínio
+    history.replaceState(null, '', '/');
+</script>
 </body>
 </html>
