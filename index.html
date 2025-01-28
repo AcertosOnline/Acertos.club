@@ -27,17 +27,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <meta name="keywords" content="Jogo do Bicho, resultados do Jogo do Bicho, dicas de apostas, história do Jogo do Bicho, loteria animal, resultado do Jogo do Bicho, Federal, Look de goiás, look, pt-rio, Pt-Rio, pt rio, PT Rio, PT RIO, PT Sp, Pt-SP, Pt - Sp, pt sp, Deu no poste, Lotep, LOTEP, lotep, Lotece, LOTECE, lotece, Nacional, nacional, Maluquinha, Maluca bahia, Maluca Bahia, maluca bahia, maluquinha, MALUQUINHA, resultado de Hoje, Federal hoje, resultado federal, Resultado federal, Resultado Federal, Loterias, LOTERIA, MALUCA Bahia, PARATODOS Bahia, Paratodos, paratodos bahia, maluca bahia, LOTECE loteria dos sonhos, LBR, LOOK LOTERIAS, Look loterias, MINAS-MG, PARATODOS PB, PT-RIO, Pt-Rio, PT-SP, Bandeirantes, LOTERIA NACIONAL, Lot Nacional, Loteria Federal, LOTERIA FEDERAL, último resultado, Cassino Online, Tigrinho, Fazendinha, Bindo, Jogo do Bicho, como ganhar dinheiro online, como ganhar dinheiro, Apostas online, jogo do cassino, jogo de minas, banca feiticeira, banca acertos.club, app.acertos.club, jogo do tigre, palpites, palpite federal, palpite para a federal, como ganhar no jogo do Bicho, banca de apostas online, resultados do jogo do bicho, dezenas do jogo do bicho, palpites do jogo do bicho, tabela do jogo do bicho, significado dos sonhos no jogo do bicho, história do jogo do bicho, animais do jogo do bicho, jogo do bicho online, como jogar o jogo do bicho, resultado do jogo do bicho de hoje, cassino online, melhores cassinos online, cassino ao vivo, cassino com bônus sem depósito, jogos de cassino online, roleta online, blackjack online, caça-níqueis online, cassino móvel, aplicativos de apostas, melhores aplicativos de apostas, apostas esportivas, apostas ao vivo, bônus de apostas, sites de apostas confiáveis">
   <link rel="icon" href="favicon.ico" type="image/x-icon">
   <link rel="manifest" href="manifest.json">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
 h1 { 
   display: none; 
 }
 
-html, body { 
-  margin: 0; 
-  padding: 0; 
-  width: 100%; 
-  height: 100%; 
-  overflow: hidden; 
+html, body {
+  font-family: 'Poppins', sans-serif; /* Fonte moderna */
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
 }
 
 iframe { 
@@ -50,18 +52,34 @@ iframe {
   position: fixed;
   top: 20px;
   right: 20px;
-  width: 50px;
-  height: 50px;
-  background: #333;
+  width: 60px;
+  height: 60px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   color: #fff;
-  font-size: 30px;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600; /* Negrito leve para um visual sofisticado */
+  font-size: 24px; /* Ajuste de tamanho */
   text-align: center;
-  line-height: 50px;
+  line-height: 60px;
   border-radius: 50%;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   cursor: grab;
   z-index: 1000;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   user-select: none;
+}
+
+.menu-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+}
+
+.menu-btn:active {
+  transform: scale(0.95);
+  cursor: grabbing;
 }
 
 .floating-menu {
@@ -70,16 +88,65 @@ iframe {
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  color: white;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(15px);
+  -webkit-backdrop-filter: blur(15px);
+  color: black;
   display: none;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   z-index: 999;
   transform: scale(0);
-  transition: transform 0.3s ease;
+  transition: transform 0.4s ease, opacity 0.4s ease;
   overflow: hidden;
+  opacity: 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Quando o menu estiver ativo */
+.floating-menu.active {
+  display: flex;
+  transform: scale(1);
+  opacity: 1;
+}
+
+/* Títulos ou links dentro do menu */
+.floating-menu a {
+  margin: 10px 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 400; /* Regular para links */
+  font-size: 16px; /* Ajuste para legibilidade */
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px 20px;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.floating-menu a:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+/* Botão para fechar o menu */
+.floating-menu .close-btn {
+  font-family: 'Poppins', sans-serif;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 28px;
+  color: white;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.2);
+  padding: 10px;
+  border-radius: 50%;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.floating-menu .close-btn:hover {
+  background: rgba(255, 255, 255, 0.4);
+  transform: scale(1.2);
 }
 
 .floating-menu.active {
@@ -103,28 +170,47 @@ iframe {
 
 /* Estilo para os links de contato e redes sociais */
 .contact-links {
-  text-align: left;
+  text-align: center;
   width: 100%; /* Ocupa toda a largura disponível */
-  margin-bottom: 20px; /* Espaço entre os links e o botão */
+  margin-bottom: 60px; /* Espaço entre os links e o botão */
 }
 
 .contact-links a {
   display: block; /* Garante que cada link ocupe uma linha inteira */
-  color: white;
+
+  align-items: center; /* Centraliza o ícone e o texto */
+  gap: 10px; /* Espaço entre o ícone e o texto */
+
+  color: black;
   font-size: 18px;
   text-decoration: none;
   padding: 10px 20px; /* Espaçamento interno para conforto visual */
   box-sizing: border-box; /* Padding e largura do contêiner não entram em conflito */
 }
 
-.contact-links a:hover {
-  text-decoration: underline; /* Efeito visual ao passar o mouse */
+
+.contact-links a img.icon {
+  width: 20px; /* Tamanho do ícone */
+  height: 20px;
 }
 
-.contact-links hr {
-  border: none;
-  border-top: 1px solid #444; /* Linha de separação */
-  margin: 5px 0; /* Espaçamento entre a linha e o texto */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.contact-links a:hover {
+  text-decoration: underline; /* Efeito visual ao passar o mouse */
 }
 
 /* Estilo para o botão em formato vertical */
@@ -133,6 +219,8 @@ iframe {
   width: 100%; /* Botão ocupa a largura completa */
   padding: 15px;
   margin: 10px 0;
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500; /* Peso intermediário */
   font-size: 18px;
   text-align: center;
   cursor: pointer;
@@ -144,28 +232,6 @@ iframe {
 
 .menu-content button:hover {
   background-color: #777; /* Efeito hover */
-}
-
-/* Estilo específico para os links */
-.menu-content a.{
-  display: block;
-  text-align: center;
-  color: white; /* Cor branca */
-  font-size: 18px; /* Tamanho da fonte */
-  text-decoration: none; /* Remove o sublinhado */
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7); /* Adiciona sombra ao texto */
-  margin-top: 20px; /* Espaçamento acima do link */
-  padding: 10px 20px; /* Espaçamento interno */
-  border: 1px solid white; /* Borda branca fina */
-  border-radius: 5px; /* Bordas arredondadas */
-  background-color: rgba(255, 255, 255, 0.1); /* Fundo translúcido */
-  transition: background-color 0.3s ease, transform 0.2s ease; /* Animação ao interagir */
-}
-
-.menu-content a.:hover {
-  background-color: rgba(255, 255, 255, 0.2); /* Destaque no fundo ao passar o mouse */
-  transform: scale(1.05); /* Aumenta levemente o tamanho ao passar o mouse */
-  text-decoration: none; /* Mantém sem sublinhado */
 }
 
 /* Classe oculta */
@@ -220,13 +286,25 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 <div class="menu-content" id="menuContent">
   <p>Promotor Dantas JB<br>Contato:</p>
   <div class="contact-links">
-    <a href="https://wa.me/5583993708505" target="_blank">WhatsApp</a>
-    <hr>
-    <a href="https://www.facebook.com/QuabraBanca/" target="_blank">Facebook</a>
-    <hr>
-    <a href="https://www.instagram.com/acertosonline/" target="_blank">Instagram</a>
-    <hr>
-    <a href="https://www.youtube.com/@AcertosOnline" target="_blank">YouTube</a>
+    <a href="https://wa.me/5583993708505" target="_blank">
+      <img src="icons/whatsapp-icon.png" alt="WhatsApp" class="icon"> (83)9 99370-8505
+    </a>
+    <a href="https://www.facebook.com/QuabraBanca/" target="_blank">
+      <img src="icons/facebook-icon.png" alt="Facebook" class="icon"> QuabraBanca
+    </a>
+    <a href="https://www.instagram.com/acertosonline/" target="_blank">
+      <img src="icons/instagram-icon.png" alt="Instagram" class="icon"> acertosonline
+    </a>
+    <a href="https://www.youtube.com/@AcertosOnline" target="_blank">
+      <img src="icons/youtube-icon.png" alt="YouTube" class="icon"> @AcertosOnline
+    </a>
+    <a href="https://br.pinterest.com/acertosonline/" target="_blank">
+      <img src="icons/pinterest-icon.png" alt="Pinterest" class="icon"> acertosonline
+    </a>
+    <a href="https://x.com/AcertosOnlineJB" target="_blank">
+      <img src="icons/x-icon.png" alt="X" class="icon"> AcertosOnlineJB
+    </a>
+
   </div>
   <button id="palpitesBtn">Palpites</button>
 </div>
@@ -254,6 +332,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
   const menuBtn = document.getElementById('menuBtn');
   const floatingMenu = document.getElementById('floatingMenu');
+
   const menuContent = document.getElementById('menuContent');
   const bancasList = document.getElementById('bancasList');
   const palpitesList = document.getElementById('palpitesList');
@@ -398,9 +477,7 @@ menuContent.appendChild(installAppItem);
       deferredPrompt = null; // Limpa o evento
     }
   });
-</script>
-  
-<script>
+
 // Limpa a barra de navegação, deixando apenas o domínio
     history.replaceState(null, '', '/');
 </script>
