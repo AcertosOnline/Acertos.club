@@ -19,12 +19,18 @@ jobs:
 
       - name: Atualizar a tag <head> no HTML
         run: |
-          awk '
+          TEMP_FILE="temp.html"
+          DATA=$(date '+%d de %B de %Y, %A')
+          
+          awk -v data="$DATA" '
             BEGIN {inside_head=0}
-            /<head>/ {inside_head=1; print; print "    <meta charset=\"UTF-8\">"; print "    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">"; print "    <title>Resultados da MALUCA BAHIA de hoje, " ENVIRON["DATA_ATUAL"] ", Jogo do Bicho</title>"; print "    <meta name=\"description\" content=\"Confira os resultados da MALUCA BAHIA de hoje, " ENVIRON["DATA_ATUAL"] ", no Jogo do Bicho. Resultados atualizados diariamente.\">"; next}
+            /<head>/ {inside_head=1; print "<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Resultados da MALUCA BAHIA de hoje, " data ", Jogo do Bicho</title>\n    <meta name=\"description\" content=\"Confira os resultados da MALUCA BAHIA de hoje, " data ", no Jogo do Bicho. Resultados atualizados diariamente.\">"; next}
             /<\/head>/ {inside_head=0}
             inside_head == 0 {print}
-          ' resultados-maluca-bahia-de-hoje.html > temp.html && mv temp.html resultados-maluca-bahia-de-hoje.html
+          ' resultados-maluca-bahia-de-hoje.html > "$TEMP_FILE" && mv "$TEMP_FILE" resultados-maluca-bahia-de-hoje.html
+
+      - name: Verificar se a atualização foi bem-sucedida
+        run: cat resultados-maluca-bahia-de-hoje.html
 
       - name: Commit e Push das mudanças
         run: |
