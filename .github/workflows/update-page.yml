@@ -20,9 +20,7 @@ jobs:
 
       - name: Atualizar data no arquivo HTML
         run: |
-          sed -i "s|<span id=\"data\">.*</span>|<span id=\"data\">${{ env.DATA_ATUAL }}</span>|g" resultados-maluca-bahia-de-hoje.html
-          sed -i "s|<title>Resultados da MALUCA BAHIA de hoje, dia .* Jogo do Bicho</title>|<title>Resultados da MALUCA BAHIA de hoje, dia ${{ env.DATA_ATUAL }}, Jogo do Bicho</title>|g" resultados-maluca-bahia-de-hoje.html
-          sed -i "s|content=\"Confira os resultados da MALUCA BAHIA de hoje, .* no Jogo do Bicho|content=\"Confira os resultados da MALUCA BAHIA de hoje, ${{ env.DATA_ATUAL }}, no Jogo do Bicho|g" resultados-maluca-bahia-de-hoje.html
+          sed -i "s|{DATA_ATUAL}|${{ env.DATA_ATUAL }}|g" resultados-maluca-bahia-de-hoje.html
 
       - name: Commit e Push das mudanças
         run: |
