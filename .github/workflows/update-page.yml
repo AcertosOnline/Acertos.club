@@ -16,7 +16,7 @@ jobs:
 
       - name: Configurar a data atual
         run: |
-          echo "DATA_ATUAL=$(date '+%d de %B de %Y, %A')" >> $GITHUB_ENV
+          echo "DATA_ATUAL=$(LC_TIME=pt_BR.UTF-8 date '+%d/%m/%Y %A')" >> $GITHUB_ENV
 
       - name: Atualizar data no arquivo HTML
         run: |
