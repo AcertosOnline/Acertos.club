@@ -20,7 +20,8 @@ jobs:
 
       - name: Atualizar data no arquivo HTML
         run: |
-          sed -i "s|{DATA_ATUAL}|${{ env.DATA_ATUAL }}|g" resultados-maluca-bahia-de-hoje.html
+          OLD_DATE=$(grep -oP '\d{2}/\d{2}/\d{4} \p{L}+' resultados-maluca-bahia-de-hoje.html | head -1)
+          sed -i "s|$OLD_DATE|${{ env.DATA_ATUAL }}|g" resultados-maluca-bahia-de-hoje.html
 
       - name: Commit e Push das mudanças
         run: |
